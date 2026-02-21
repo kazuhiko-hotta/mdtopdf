@@ -1,0 +1,25 @@
+[build-system]
+requires = ["uv_build>=0.10.0,<0.11.0"]
+build-backend = "uv_build"
+
+[project]
+name = "mdtopdf"
+version = "0.1.0"
+description = "Markdown → HTML → PDF converter (pandoc + Playwright)"
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [{ name = "mdtopdf contributors" }]
+dependencies = [
+  "playwright>=1.40,<2",
+]
+
+[project.scripts]
+mdtopdf = "mdtopdf.cli:main"
+
+[tool.uv]
+cache-dir = ".uv-cache"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
